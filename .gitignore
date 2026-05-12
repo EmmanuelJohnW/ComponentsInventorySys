@@ -1,0 +1,26 @@
+# Build output
+bin/
+obj/
+
+# Visual Studio / Rider
+.vs/
+*.user
+*.suo
+*.userosscache
+*.sln.docstates
+.idea/
+
+# NuGet
+*.nupkg
+packages/
+
+# Secrets — never commit real credentials
+SupabaseConfig.cs
+
+# Claude Code local settings
+.claude/
+
+# OS
+Thumbs.db
+Desktop.ini
+.DS_Store
