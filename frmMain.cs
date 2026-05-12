@@ -73,8 +73,9 @@ public partial class frmMain : Form
     //   CheckoutDate <= today AND ReturnDate >= today
     private void LoadTodayCheckouts()
     {
+        // activeOnly: true so returned components disappear from this grid immediately.
         dgvTodayCheckouts.DataSource =
-            DataStore.GetCheckoutsView(from: DateTime.Today, to: DateTime.Today);
+            DataStore.GetCheckoutsView(from: DateTime.Today, to: DateTime.Today, activeOnly: true);
     }
 
     // ----------------------------------------------------------
@@ -107,7 +108,8 @@ public partial class frmMain : Form
     private void mnuComponents_Click(object sender, EventArgs e)
     {
         new frmComponents().ShowDialog(this);
-        RefreshDashboard(); // Stats may have changed (components added/deleted).
+        RefreshDashboard();   // Stat cards may have changed.
+        LoadTodayCheckouts(); // Grid must refresh — a component may have been returned.
     }
 
     // Open the Project Management form.

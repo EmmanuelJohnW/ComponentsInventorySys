@@ -258,30 +258,53 @@ public static class DataStore
 
     /// <summary>
     /// Updates an existing component in the database and the in-memory table.
+    /// If the component is being set back to "In Stock" from "Checked Out",
+    /// its active checkout records are also marked "Returned" in the same
+    /// transaction so the dashboard grid stays accurate.
     /// </summary>
     public static void UpdateComponent(int id, string partNo, string manufacturer,
         string partName, int qty, decimal unitCost, string status)
     {
+        // Check the current in-memory status before overwriting it, so we
+        // know whether a "Checked Out" → "In Stock" transition is happening.
+        var existing     = Components.Select($"ComponentID = {id}");
+        bool wasCheckedOut = existing.Length > 0 &&
+                             (string)existing[0]["Status"] == "Checked Out";
+        bool nowAvailable  = status == "In Stock";
+
         using var conn = OpenConnection();
-        using var cmd  = new NpgsqlCommand(
+        using var tx   = conn.BeginTransaction();
+
+        // Update the component row.
+        using var compCmd = new NpgsqlCommand(
             @"UPDATE components
               SET part_no=@pn, manufacturer=@mfr, part_name=@name,
                   qty=@qty, unit_cost=@cost, status=@status
-              WHERE component_id=@id", conn);
+              WHERE component_id=@id", conn, tx);
 
-        cmd.Parameters.AddWithValue("id",     id);
-        cmd.Parameters.AddWithValue("pn",     partNo);
-        cmd.Parameters.AddWithValue("mfr",    manufacturer);
-        cmd.Parameters.AddWithValue("name",   partName);
-        cmd.Parameters.AddWithValue("qty",    qty);
-        cmd.Parameters.AddWithValue("cost",   unitCost);
-        cmd.Parameters.AddWithValue("status", status);
+        compCmd.Parameters.AddWithValue("id",     id);
+        compCmd.Parameters.AddWithValue("pn",     partNo);
+        compCmd.Parameters.AddWithValue("mfr",    manufacturer);
+        compCmd.Parameters.AddWithValue("name",   partName);
+        compCmd.Parameters.AddWithValue("qty",    qty);
+        compCmd.Parameters.AddWithValue("cost",   unitCost);
+        compCmd.Parameters.AddWithValue("status", status);
+        compCmd.ExecuteNonQuery();
 
-        // ExecuteNonQuery() runs INSERT/UPDATE/DELETE statements
-        // that don't return data rows.
-        cmd.ExecuteNonQuery();
+        // If the component is being returned (Checked Out → In Stock),
+        // close all its open checkout records so they leave the dashboard.
+        if (wasCheckedOut && nowAvailable)
+        {
+            using var closeCmd = new NpgsqlCommand(
+                "UPDATE checkouts SET status = 'Returned' " +
+                "WHERE component_id = @id AND status = 'Checked Out'", conn, tx);
+            closeCmd.Parameters.AddWithValue("id", id);
+            closeCmd.ExecuteNonQuery();
+        }
 
-        // Find the matching row in the in-memory DataTable and update it.
+        tx.Commit();
+
+        // Mirror the component change in memory.
         var rows = Components.Select($"ComponentID = {id}");
         if (rows.Length == 0) return;
         rows[0]["PartNo"]       = partNo;
@@ -291,6 +314,14 @@ public static class DataStore
         rows[0]["UnitCost"]     = unitCost;
         rows[0]["Status"]       = status;
         Components.AcceptChanges();
+
+        // Mirror the checkout closure in memory.
+        if (wasCheckedOut && nowAvailable)
+        {
+            foreach (DataRow r in Checkouts.Select($"ComponentID = {id} AND Status = 'Checked Out'"))
+                r["Status"] = "Returned";
+            Checkouts.AcceptChanges();
+        }
     }
 
     /// <summary>
@@ -447,10 +478,13 @@ public static class DataStore
     // Optional date range: only includes checkouts that overlap
     // the [from, to] window. If both are null, all records are returned.
     //
+    // activeOnly = true  → only "Checked Out" records (used by dashboard)
+    // activeOnly = false → all records including "Returned" (used by reports)
+    //
     // This reads from the in-memory DataTables (no database query)
     // so it is fast and doesn't need a network connection.
     // ----------------------------------------------------------
-    public static DataTable GetCheckoutsView(DateTime? from = null, DateTime? to = null)
+    public static DataTable GetCheckoutsView(DateTime? from = null, DateTime? to = null, bool activeOnly = false)
     {
         // Define the output table structure (what the grid will show).
         var result = new DataTable();
@@ -464,6 +498,9 @@ public static class DataStore
 
         foreach (DataRow r in Checkouts.Rows)
         {
+            // activeOnly: skip returned/closed records (dashboard only wants live checkouts).
+            if (activeOnly && (string)r["Status"] != "Checked Out") continue;
+
             DateTime checkout = (DateTime)r["CheckoutDate"];
             DateTime returnDt = (DateTime)r["ReturnDate"];
 
