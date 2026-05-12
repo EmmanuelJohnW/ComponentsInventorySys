@@ -14,9 +14,6 @@ obj/
 *.nupkg
 packages/
 
-# Secrets — never commit real credentials
-SupabaseConfig.cs
-
 # Claude Code local settings
 .claude/
 
