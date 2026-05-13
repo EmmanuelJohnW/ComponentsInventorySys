@@ -1,6 +1,5 @@
 namespace ElectronicsInventory
 {
-    // Layout: navy header (title + search) | horizontal field strip | full-width grid | bottom action bar
     partial class frmComponents
     {
         private System.ComponentModel.IContainer components = null;
@@ -14,7 +13,9 @@ namespace ElectronicsInventory
 
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dgvHeaderStyle = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dgvHeaderStyle  = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dgvCellStyle    = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dgvAltCellStyle = new System.Windows.Forms.DataGridViewCellStyle();
 
             this.pnlHeader       = new System.Windows.Forms.Panel();
             this.lblTitle        = new System.Windows.Forms.Label();
@@ -46,7 +47,7 @@ namespace ElectronicsInventory
             this.SuspendLayout();
 
             // ── pnlHeader ────────────────────────────────────────────────
-            this.pnlHeader.BackColor = System.Drawing.Color.FromArgb(13, 71, 161);
+            this.pnlHeader.BackColor = System.Drawing.Color.FromArgb(136, 59, 47);
             this.pnlHeader.Controls.Add(this.lblTitle);
             this.pnlHeader.Controls.Add(this.txtSearch);
             this.pnlHeader.Dock     = System.Windows.Forms.DockStyle.Top;
@@ -64,7 +65,7 @@ namespace ElectronicsInventory
             this.lblTitle.Text      = "Component Management";
             this.lblTitle.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
 
-            this.txtSearch.BackColor       = System.Drawing.Color.FromArgb(25, 85, 170);
+            this.txtSearch.BackColor       = System.Drawing.Color.FromArgb(100, 40, 30);
             this.txtSearch.BorderStyle     = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtSearch.Font            = new System.Drawing.Font("Segoe UI", 9F);
             this.txtSearch.ForeColor       = System.Drawing.Color.White;
@@ -75,8 +76,8 @@ namespace ElectronicsInventory
             this.txtSearch.TabIndex        = 10;
             this.txtSearch.TextChanged    += new System.EventHandler(this.txtSearch_TextChanged);
 
-            // ── pnlForm (horizontal field strip below header) ────────────
-            this.pnlForm.BackColor  = System.Drawing.Color.FromArgb(248, 249, 252);
+            // ── pnlForm ──────────────────────────────────────────────────
+            this.pnlForm.BackColor  = System.Drawing.Color.FromArgb(72, 72, 72);
             this.pnlForm.Controls.Add(this.lblPartNo);
             this.pnlForm.Controls.Add(this.txtPartNo);
             this.pnlForm.Controls.Add(this.lblManufacturer);
@@ -94,16 +95,17 @@ namespace ElectronicsInventory
             this.pnlForm.Size       = new System.Drawing.Size(960, 120);
             this.pnlForm.TabIndex   = 1;
 
-            // Row 1 — Part No. | Manufacturer | Part Name | Status
             this.lblPartNo.AutoSize  = true;
             this.lblPartNo.Font      = new System.Drawing.Font("Segoe UI", 9F);
-            this.lblPartNo.ForeColor = System.Drawing.Color.FromArgb(80, 80, 80);
+            this.lblPartNo.ForeColor = System.Drawing.Color.White;
             this.lblPartNo.Location  = new System.Drawing.Point(16, 10);
             this.lblPartNo.Name      = "lblPartNo";
             this.lblPartNo.Text      = "Part No.";
 
+            this.txtPartNo.BackColor   = System.Drawing.Color.FromArgb(82, 82, 82);
             this.txtPartNo.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtPartNo.Font        = new System.Drawing.Font("Segoe UI", 9F);
+            this.txtPartNo.ForeColor   = System.Drawing.Color.White;
             this.txtPartNo.Location    = new System.Drawing.Point(16, 28);
             this.txtPartNo.Name        = "txtPartNo";
             this.txtPartNo.Size        = new System.Drawing.Size(160, 26);
@@ -111,13 +113,15 @@ namespace ElectronicsInventory
 
             this.lblManufacturer.AutoSize  = true;
             this.lblManufacturer.Font      = new System.Drawing.Font("Segoe UI", 9F);
-            this.lblManufacturer.ForeColor = System.Drawing.Color.FromArgb(80, 80, 80);
+            this.lblManufacturer.ForeColor = System.Drawing.Color.White;
             this.lblManufacturer.Location  = new System.Drawing.Point(194, 10);
             this.lblManufacturer.Name      = "lblManufacturer";
             this.lblManufacturer.Text      = "Manufacturer";
 
+            this.txtManufacturer.BackColor   = System.Drawing.Color.FromArgb(82, 82, 82);
             this.txtManufacturer.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtManufacturer.Font        = new System.Drawing.Font("Segoe UI", 9F);
+            this.txtManufacturer.ForeColor   = System.Drawing.Color.White;
             this.txtManufacturer.Location    = new System.Drawing.Point(194, 28);
             this.txtManufacturer.Name        = "txtManufacturer";
             this.txtManufacturer.Size        = new System.Drawing.Size(200, 26);
@@ -125,13 +129,15 @@ namespace ElectronicsInventory
 
             this.lblPartName.AutoSize  = true;
             this.lblPartName.Font      = new System.Drawing.Font("Segoe UI", 9F);
-            this.lblPartName.ForeColor = System.Drawing.Color.FromArgb(80, 80, 80);
+            this.lblPartName.ForeColor = System.Drawing.Color.White;
             this.lblPartName.Location  = new System.Drawing.Point(412, 10);
             this.lblPartName.Name      = "lblPartName";
             this.lblPartName.Text      = "Part Name";
 
+            this.txtPartName.BackColor   = System.Drawing.Color.FromArgb(82, 82, 82);
             this.txtPartName.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtPartName.Font        = new System.Drawing.Font("Segoe UI", 9F);
+            this.txtPartName.ForeColor   = System.Drawing.Color.White;
             this.txtPartName.Location    = new System.Drawing.Point(412, 28);
             this.txtPartName.Name        = "txtPartName";
             this.txtPartName.Size        = new System.Drawing.Size(280, 26);
@@ -139,30 +145,33 @@ namespace ElectronicsInventory
 
             this.lblStatus.AutoSize  = true;
             this.lblStatus.Font      = new System.Drawing.Font("Segoe UI", 9F);
-            this.lblStatus.ForeColor = System.Drawing.Color.FromArgb(80, 80, 80);
+            this.lblStatus.ForeColor = System.Drawing.Color.White;
             this.lblStatus.Location  = new System.Drawing.Point(710, 10);
             this.lblStatus.Name      = "lblStatus";
             this.lblStatus.Text      = "Status";
 
+            this.cmbStatus.BackColor     = System.Drawing.Color.FromArgb(82, 82, 82);
             this.cmbStatus.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbStatus.FlatStyle     = System.Windows.Forms.FlatStyle.Flat;
             this.cmbStatus.Font          = new System.Drawing.Font("Segoe UI", 9F);
+            this.cmbStatus.ForeColor     = System.Drawing.Color.White;
             this.cmbStatus.Items.AddRange(new object[] { "In Stock", "Checked Out", "Defective" });
             this.cmbStatus.Location      = new System.Drawing.Point(710, 28);
             this.cmbStatus.Name          = "cmbStatus";
             this.cmbStatus.Size          = new System.Drawing.Size(230, 26);
             this.cmbStatus.TabIndex      = 3;
 
-            // Row 2 — Qty | Unit Cost
             this.lblQty.AutoSize  = true;
             this.lblQty.Font      = new System.Drawing.Font("Segoe UI", 9F);
-            this.lblQty.ForeColor = System.Drawing.Color.FromArgb(80, 80, 80);
+            this.lblQty.ForeColor = System.Drawing.Color.White;
             this.lblQty.Location  = new System.Drawing.Point(16, 66);
             this.lblQty.Name      = "lblQty";
             this.lblQty.Text      = "Qty";
 
+            this.txtQty.BackColor   = System.Drawing.Color.FromArgb(82, 82, 82);
             this.txtQty.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtQty.Font        = new System.Drawing.Font("Segoe UI", 9F);
+            this.txtQty.ForeColor   = System.Drawing.Color.White;
             this.txtQty.Location    = new System.Drawing.Point(16, 84);
             this.txtQty.Name        = "txtQty";
             this.txtQty.Size        = new System.Drawing.Size(120, 26);
@@ -170,43 +179,58 @@ namespace ElectronicsInventory
 
             this.lblUnitCost.AutoSize  = true;
             this.lblUnitCost.Font      = new System.Drawing.Font("Segoe UI", 9F);
-            this.lblUnitCost.ForeColor = System.Drawing.Color.FromArgb(80, 80, 80);
+            this.lblUnitCost.ForeColor = System.Drawing.Color.White;
             this.lblUnitCost.Location  = new System.Drawing.Point(154, 66);
             this.lblUnitCost.Name      = "lblUnitCost";
             this.lblUnitCost.Text      = "Unit Cost";
 
+            this.txtUnitCost.BackColor   = System.Drawing.Color.FromArgb(82, 82, 82);
             this.txtUnitCost.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtUnitCost.Font        = new System.Drawing.Font("Segoe UI", 9F);
+            this.txtUnitCost.ForeColor   = System.Drawing.Color.White;
             this.txtUnitCost.Location    = new System.Drawing.Point(154, 84);
             this.txtUnitCost.Name        = "txtUnitCost";
             this.txtUnitCost.Size        = new System.Drawing.Size(160, 26);
             this.txtUnitCost.TabIndex    = 5;
 
-            // ── dgvComponents (fills space between form strip and action bar) ──
-            this.dgvComponents.AllowUserToAddRows    = false;
-            this.dgvComponents.AllowUserToDeleteRows = false;
-            this.dgvComponents.AutoSizeColumnsMode   = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dgvComponents.BackgroundColor       = System.Drawing.Color.White;
-            this.dgvComponents.BorderStyle           = System.Windows.Forms.BorderStyle.None;
-            this.dgvComponents.CellBorderStyle       = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
-            dgvHeaderStyle.BackColor = System.Drawing.Color.FromArgb(21, 101, 192);
+            // ── dgvComponents ────────────────────────────────────────────
+            dgvHeaderStyle.BackColor = System.Drawing.Color.FromArgb(100, 40, 30);
             dgvHeaderStyle.Font      = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
             dgvHeaderStyle.ForeColor = System.Drawing.Color.White;
-            this.dgvComponents.ColumnHeadersDefaultCellStyle = dgvHeaderStyle;
-            this.dgvComponents.ColumnHeadersHeightSizeMode   = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvComponents.Dock                          = System.Windows.Forms.DockStyle.Fill;
-            this.dgvComponents.EnableHeadersVisualStyles     = false;
-            this.dgvComponents.GridColor                     = System.Drawing.Color.FromArgb(224, 224, 224);
-            this.dgvComponents.Name                          = "dgvComponents";
-            this.dgvComponents.ReadOnly                      = true;
-            this.dgvComponents.RowHeadersVisible             = false;
-            this.dgvComponents.RowTemplate.Height            = 32;
-            this.dgvComponents.SelectionMode                 = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvComponents.TabIndex                      = 2;
-            this.dgvComponents.SelectionChanged             += new System.EventHandler(this.dgvComponents_SelectionChanged);
 
-            // ── pnlActions (bottom button bar) ───────────────────────────
-            this.pnlActions.BackColor = System.Drawing.Color.FromArgb(240, 244, 250);
+            dgvCellStyle.BackColor          = System.Drawing.Color.FromArgb(62, 62, 62);
+            dgvCellStyle.ForeColor          = System.Drawing.Color.White;
+            dgvCellStyle.SelectionBackColor = System.Drawing.Color.FromArgb(136, 59, 47);
+            dgvCellStyle.SelectionForeColor = System.Drawing.Color.White;
+
+            dgvAltCellStyle.BackColor          = System.Drawing.Color.FromArgb(70, 70, 70);
+            dgvAltCellStyle.ForeColor          = System.Drawing.Color.White;
+            dgvAltCellStyle.SelectionBackColor = System.Drawing.Color.FromArgb(136, 59, 47);
+            dgvAltCellStyle.SelectionForeColor = System.Drawing.Color.White;
+
+            this.dgvComponents.AllowUserToAddRows              = false;
+            this.dgvComponents.AllowUserToDeleteRows           = false;
+            this.dgvComponents.AlternatingRowsDefaultCellStyle = dgvAltCellStyle;
+            this.dgvComponents.AutoSizeColumnsMode             = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgvComponents.BackgroundColor                 = System.Drawing.Color.FromArgb(60, 60, 60);
+            this.dgvComponents.BorderStyle                     = System.Windows.Forms.BorderStyle.None;
+            this.dgvComponents.CellBorderStyle                 = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
+            this.dgvComponents.ColumnHeadersDefaultCellStyle   = dgvHeaderStyle;
+            this.dgvComponents.ColumnHeadersHeightSizeMode     = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvComponents.DefaultCellStyle                = dgvCellStyle;
+            this.dgvComponents.Dock                            = System.Windows.Forms.DockStyle.Fill;
+            this.dgvComponents.EnableHeadersVisualStyles       = false;
+            this.dgvComponents.GridColor                       = System.Drawing.Color.FromArgb(88, 88, 88);
+            this.dgvComponents.Name                            = "dgvComponents";
+            this.dgvComponents.ReadOnly                        = true;
+            this.dgvComponents.RowHeadersVisible               = false;
+            this.dgvComponents.RowTemplate.Height              = 32;
+            this.dgvComponents.SelectionMode                   = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgvComponents.TabIndex                        = 2;
+            this.dgvComponents.SelectionChanged               += new System.EventHandler(this.dgvComponents_SelectionChanged);
+
+            // ── pnlActions ───────────────────────────────────────────────
+            this.pnlActions.BackColor = System.Drawing.Color.FromArgb(54, 54, 54);
             this.pnlActions.Controls.Add(this.btnAdd);
             this.pnlActions.Controls.Add(this.btnUpdate);
             this.pnlActions.Controls.Add(this.btnDelete);
@@ -216,7 +240,7 @@ namespace ElectronicsInventory
             this.pnlActions.Size      = new System.Drawing.Size(960, 58);
             this.pnlActions.TabIndex  = 3;
 
-            this.btnAdd.BackColor                 = System.Drawing.Color.FromArgb(21, 101, 192);
+            this.btnAdd.BackColor                 = System.Drawing.Color.FromArgb(136, 59, 47);
             this.btnAdd.Cursor                    = System.Windows.Forms.Cursors.Hand;
             this.btnAdd.FlatAppearance.BorderSize = 0;
             this.btnAdd.FlatStyle                 = System.Windows.Forms.FlatStyle.Flat;
@@ -229,7 +253,7 @@ namespace ElectronicsInventory
             this.btnAdd.UseVisualStyleBackColor   = false;
             this.btnAdd.Click                    += new System.EventHandler(this.btnAdd_Click);
 
-            this.btnUpdate.BackColor                 = System.Drawing.Color.FromArgb(21, 101, 192);
+            this.btnUpdate.BackColor                 = System.Drawing.Color.FromArgb(136, 59, 47);
             this.btnUpdate.Cursor                    = System.Windows.Forms.Cursors.Hand;
             this.btnUpdate.FlatAppearance.BorderSize = 0;
             this.btnUpdate.FlatStyle                 = System.Windows.Forms.FlatStyle.Flat;
@@ -242,7 +266,7 @@ namespace ElectronicsInventory
             this.btnUpdate.UseVisualStyleBackColor   = false;
             this.btnUpdate.Click                    += new System.EventHandler(this.btnUpdate_Click);
 
-            this.btnDelete.BackColor                 = System.Drawing.Color.FromArgb(183, 28, 28);
+            this.btnDelete.BackColor                 = System.Drawing.Color.FromArgb(140, 30, 30);
             this.btnDelete.Cursor                    = System.Windows.Forms.Cursors.Hand;
             this.btnDelete.FlatAppearance.BorderSize = 0;
             this.btnDelete.FlatStyle                 = System.Windows.Forms.FlatStyle.Flat;
@@ -255,7 +279,7 @@ namespace ElectronicsInventory
             this.btnDelete.UseVisualStyleBackColor   = false;
             this.btnDelete.Click                    += new System.EventHandler(this.btnDelete_Click);
 
-            this.btnClear.BackColor                 = System.Drawing.Color.FromArgb(97, 97, 97);
+            this.btnClear.BackColor                 = System.Drawing.Color.FromArgb(88, 88, 88);
             this.btnClear.Cursor                    = System.Windows.Forms.Cursors.Hand;
             this.btnClear.FlatAppearance.BorderSize = 0;
             this.btnClear.FlatStyle                 = System.Windows.Forms.FlatStyle.Flat;
@@ -271,7 +295,7 @@ namespace ElectronicsInventory
             // ── frmComponents ────────────────────────────────────────────
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode       = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor           = System.Drawing.Color.White;
+            this.BackColor           = System.Drawing.Color.FromArgb(60, 60, 60);
             this.ClientSize          = new System.Drawing.Size(960, 600);
             this.Controls.Add(this.dgvComponents);
             this.Controls.Add(this.pnlActions);

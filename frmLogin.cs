@@ -28,7 +28,25 @@ public partial class frmLogin : Form
 {
     public frmLogin()
     {
-        InitializeComponent(); // Auto-generated: sets up all UI controls.
+        InitializeComponent();
+        LoadLogo();
+    }
+
+    private void LoadLogo()
+    {
+        const string filename = "677193192_1302897655299649_1484828894948199404_n.png";
+        string[] candidates = {
+            Path.Combine(Application.StartupPath, "images", filename),
+            Path.GetFullPath(Path.Combine(Application.StartupPath, "..", "..", "..", "images", filename)),
+        };
+        foreach (string path in candidates)
+        {
+            if (File.Exists(path))
+            {
+                picLogo.Image = Image.FromFile(path);
+                return;
+            }
+        }
     }
 
     // Fires when the Login button is clicked.

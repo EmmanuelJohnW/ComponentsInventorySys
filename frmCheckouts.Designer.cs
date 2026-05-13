@@ -1,6 +1,5 @@
 namespace ElectronicsInventory
 {
-    // Layout: dark header band (title) | top form panel (filters row) | full-width checkout grid
     partial class frmCheckouts
     {
         private System.ComponentModel.IContainer components = null;
@@ -14,7 +13,9 @@ namespace ElectronicsInventory
 
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dgvHeaderStyle = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dgvHeaderStyle  = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dgvCellStyle    = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dgvAltCellStyle = new System.Windows.Forms.DataGridViewCellStyle();
 
             this.pnlHeader       = new System.Windows.Forms.Panel();
             this.lblTitle        = new System.Windows.Forms.Label();
@@ -38,7 +39,7 @@ namespace ElectronicsInventory
             this.SuspendLayout();
 
             // ── pnlHeader ────────────────────────────────────────────────
-            this.pnlHeader.BackColor = System.Drawing.Color.FromArgb(13, 71, 161);
+            this.pnlHeader.BackColor = System.Drawing.Color.FromArgb(136, 59, 47);
             this.pnlHeader.Controls.Add(this.lblTitle);
             this.pnlHeader.Dock     = System.Windows.Forms.DockStyle.Top;
             this.pnlHeader.Name     = "pnlHeader";
@@ -56,7 +57,7 @@ namespace ElectronicsInventory
             this.lblTitle.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
 
             // ── pnlForm ──────────────────────────────────────────────────
-            this.pnlForm.BackColor  = System.Drawing.Color.FromArgb(248, 249, 252);
+            this.pnlForm.BackColor  = System.Drawing.Color.FromArgb(72, 72, 72);
             this.pnlForm.Controls.Add(this.lblComponent);
             this.pnlForm.Controls.Add(this.cmbComponent);
             this.pnlForm.Controls.Add(this.lblProject);
@@ -73,17 +74,18 @@ namespace ElectronicsInventory
             this.pnlForm.Size       = new System.Drawing.Size(960, 170);
             this.pnlForm.TabIndex   = 1;
 
-            // Row 1: Component (col 0) | Project (col 1)
             this.lblComponent.AutoSize  = true;
             this.lblComponent.Font      = new System.Drawing.Font("Segoe UI", 9F);
-            this.lblComponent.ForeColor = System.Drawing.Color.FromArgb(80, 80, 80);
+            this.lblComponent.ForeColor = System.Drawing.Color.White;
             this.lblComponent.Location  = new System.Drawing.Point(16, 14);
             this.lblComponent.Name      = "lblComponent";
             this.lblComponent.Text      = "Component";
 
+            this.cmbComponent.BackColor            = System.Drawing.Color.FromArgb(82, 82, 82);
             this.cmbComponent.DropDownStyle        = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbComponent.FlatStyle             = System.Windows.Forms.FlatStyle.Flat;
             this.cmbComponent.Font                  = new System.Drawing.Font("Segoe UI", 9F);
+            this.cmbComponent.ForeColor             = System.Drawing.Color.White;
             this.cmbComponent.Location              = new System.Drawing.Point(16, 32);
             this.cmbComponent.Name                  = "cmbComponent";
             this.cmbComponent.Size                  = new System.Drawing.Size(300, 26);
@@ -92,23 +94,24 @@ namespace ElectronicsInventory
 
             this.lblProject.AutoSize  = true;
             this.lblProject.Font      = new System.Drawing.Font("Segoe UI", 9F);
-            this.lblProject.ForeColor = System.Drawing.Color.FromArgb(80, 80, 80);
+            this.lblProject.ForeColor = System.Drawing.Color.White;
             this.lblProject.Location  = new System.Drawing.Point(334, 14);
             this.lblProject.Name      = "lblProject";
             this.lblProject.Text      = "Project";
 
+            this.cmbProject.BackColor     = System.Drawing.Color.FromArgb(82, 82, 82);
             this.cmbProject.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbProject.FlatStyle      = System.Windows.Forms.FlatStyle.Flat;
             this.cmbProject.Font           = new System.Drawing.Font("Segoe UI", 9F);
+            this.cmbProject.ForeColor      = System.Drawing.Color.White;
             this.cmbProject.Location       = new System.Drawing.Point(334, 32);
             this.cmbProject.Name           = "cmbProject";
             this.cmbProject.Size           = new System.Drawing.Size(280, 26);
             this.cmbProject.TabIndex       = 1;
 
-            // Row 2: Checkout Date | Return Date | Unit Value | Save button
             this.lblCheckoutDate.AutoSize  = true;
             this.lblCheckoutDate.Font      = new System.Drawing.Font("Segoe UI", 9F);
-            this.lblCheckoutDate.ForeColor = System.Drawing.Color.FromArgb(80, 80, 80);
+            this.lblCheckoutDate.ForeColor = System.Drawing.Color.White;
             this.lblCheckoutDate.Location  = new System.Drawing.Point(16, 74);
             this.lblCheckoutDate.Name      = "lblCheckoutDate";
             this.lblCheckoutDate.Text      = "Checkout Date";
@@ -121,7 +124,7 @@ namespace ElectronicsInventory
 
             this.lblReturnDate.AutoSize  = true;
             this.lblReturnDate.Font      = new System.Drawing.Font("Segoe UI", 9F);
-            this.lblReturnDate.ForeColor = System.Drawing.Color.FromArgb(80, 80, 80);
+            this.lblReturnDate.ForeColor = System.Drawing.Color.White;
             this.lblReturnDate.Location  = new System.Drawing.Point(214, 74);
             this.lblReturnDate.Name      = "lblReturnDate";
             this.lblReturnDate.Text      = "Return Date";
@@ -134,21 +137,22 @@ namespace ElectronicsInventory
 
             this.lblUnitValue.AutoSize  = true;
             this.lblUnitValue.Font      = new System.Drawing.Font("Segoe UI", 9F);
-            this.lblUnitValue.ForeColor = System.Drawing.Color.FromArgb(80, 80, 80);
+            this.lblUnitValue.ForeColor = System.Drawing.Color.White;
             this.lblUnitValue.Location  = new System.Drawing.Point(412, 74);
             this.lblUnitValue.Name      = "lblUnitValue";
             this.lblUnitValue.Text      = "Unit Value";
 
-            this.txtUnitValue.BackColor    = System.Drawing.Color.FromArgb(227, 242, 253);
+            this.txtUnitValue.BackColor    = System.Drawing.Color.FromArgb(82, 82, 82);
             this.txtUnitValue.BorderStyle  = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtUnitValue.Font         = new System.Drawing.Font("Segoe UI", 9F);
+            this.txtUnitValue.ForeColor    = System.Drawing.Color.FromArgb(200, 200, 200);
             this.txtUnitValue.Location     = new System.Drawing.Point(412, 92);
             this.txtUnitValue.Name         = "txtUnitValue";
             this.txtUnitValue.ReadOnly     = true;
             this.txtUnitValue.Size         = new System.Drawing.Size(160, 26);
             this.txtUnitValue.TabIndex     = 4;
 
-            this.btnSaveCheckout.BackColor                 = System.Drawing.Color.FromArgb(21, 101, 192);
+            this.btnSaveCheckout.BackColor                 = System.Drawing.Color.FromArgb(136, 59, 47);
             this.btnSaveCheckout.Cursor                    = System.Windows.Forms.Cursors.Hand;
             this.btnSaveCheckout.FlatAppearance.BorderSize = 0;
             this.btnSaveCheckout.FlatStyle                 = System.Windows.Forms.FlatStyle.Flat;
@@ -162,31 +166,44 @@ namespace ElectronicsInventory
             this.btnSaveCheckout.Click                    += new System.EventHandler(this.btnSaveCheckout_Click);
 
             // ── dgvCheckouts ─────────────────────────────────────────────
-            this.dgvCheckouts.AllowUserToAddRows    = false;
-            this.dgvCheckouts.AllowUserToDeleteRows = false;
-            this.dgvCheckouts.AutoSizeColumnsMode   = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dgvCheckouts.BackgroundColor       = System.Drawing.Color.White;
-            this.dgvCheckouts.BorderStyle           = System.Windows.Forms.BorderStyle.None;
-            this.dgvCheckouts.CellBorderStyle       = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
-            dgvHeaderStyle.BackColor = System.Drawing.Color.FromArgb(21, 101, 192);
+            dgvHeaderStyle.BackColor = System.Drawing.Color.FromArgb(100, 40, 30);
             dgvHeaderStyle.Font      = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
             dgvHeaderStyle.ForeColor = System.Drawing.Color.White;
-            this.dgvCheckouts.ColumnHeadersDefaultCellStyle = dgvHeaderStyle;
-            this.dgvCheckouts.ColumnHeadersHeightSizeMode   = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvCheckouts.Dock                          = System.Windows.Forms.DockStyle.Fill;
-            this.dgvCheckouts.EnableHeadersVisualStyles     = false;
-            this.dgvCheckouts.GridColor                     = System.Drawing.Color.FromArgb(224, 224, 224);
-            this.dgvCheckouts.Name                          = "dgvCheckouts";
-            this.dgvCheckouts.ReadOnly                      = true;
-            this.dgvCheckouts.RowHeadersVisible             = false;
-            this.dgvCheckouts.RowTemplate.Height            = 32;
-            this.dgvCheckouts.SelectionMode                 = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvCheckouts.TabIndex                      = 2;
+
+            dgvCellStyle.BackColor          = System.Drawing.Color.FromArgb(62, 62, 62);
+            dgvCellStyle.ForeColor          = System.Drawing.Color.White;
+            dgvCellStyle.SelectionBackColor = System.Drawing.Color.FromArgb(136, 59, 47);
+            dgvCellStyle.SelectionForeColor = System.Drawing.Color.White;
+
+            dgvAltCellStyle.BackColor          = System.Drawing.Color.FromArgb(70, 70, 70);
+            dgvAltCellStyle.ForeColor          = System.Drawing.Color.White;
+            dgvAltCellStyle.SelectionBackColor = System.Drawing.Color.FromArgb(136, 59, 47);
+            dgvAltCellStyle.SelectionForeColor = System.Drawing.Color.White;
+
+            this.dgvCheckouts.AllowUserToAddRows              = false;
+            this.dgvCheckouts.AllowUserToDeleteRows           = false;
+            this.dgvCheckouts.AlternatingRowsDefaultCellStyle = dgvAltCellStyle;
+            this.dgvCheckouts.AutoSizeColumnsMode             = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgvCheckouts.BackgroundColor                 = System.Drawing.Color.FromArgb(60, 60, 60);
+            this.dgvCheckouts.BorderStyle                     = System.Windows.Forms.BorderStyle.None;
+            this.dgvCheckouts.CellBorderStyle                 = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
+            this.dgvCheckouts.ColumnHeadersDefaultCellStyle   = dgvHeaderStyle;
+            this.dgvCheckouts.ColumnHeadersHeightSizeMode     = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvCheckouts.DefaultCellStyle                = dgvCellStyle;
+            this.dgvCheckouts.Dock                            = System.Windows.Forms.DockStyle.Fill;
+            this.dgvCheckouts.EnableHeadersVisualStyles       = false;
+            this.dgvCheckouts.GridColor                       = System.Drawing.Color.FromArgb(88, 88, 88);
+            this.dgvCheckouts.Name                            = "dgvCheckouts";
+            this.dgvCheckouts.ReadOnly                        = true;
+            this.dgvCheckouts.RowHeadersVisible               = false;
+            this.dgvCheckouts.RowTemplate.Height              = 32;
+            this.dgvCheckouts.SelectionMode                   = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgvCheckouts.TabIndex                        = 2;
 
             // ── frmCheckouts ─────────────────────────────────────────────
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode       = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor           = System.Drawing.Color.White;
+            this.BackColor           = System.Drawing.Color.FromArgb(60, 60, 60);
             this.ClientSize          = new System.Drawing.Size(960, 600);
             this.Controls.Add(this.dgvCheckouts);
             this.Controls.Add(this.pnlForm);

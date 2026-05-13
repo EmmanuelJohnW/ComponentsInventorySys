@@ -13,41 +13,39 @@ namespace ElectronicsInventory
 
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dgvHeaderStyle = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dgvHeaderStyle  = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dgvCellStyle    = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dgvAltCellStyle = new System.Windows.Forms.DataGridViewCellStyle();
 
-            this.mnuMain                     = new System.Windows.Forms.MenuStrip();
-            this.fileToolStripMenuItem       = new System.Windows.Forms.ToolStripMenuItem();
-            this.mnuLogout                   = new System.Windows.Forms.ToolStripMenuItem();
-            this.mnuExit                     = new System.Windows.Forms.ToolStripMenuItem();
-            this.masterFileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.mnuComponents               = new System.Windows.Forms.ToolStripMenuItem();
-            this.mnuProjects                 = new System.Windows.Forms.ToolStripMenuItem();
+            this.mnuMain                      = new System.Windows.Forms.MenuStrip();
+            this.fileToolStripMenuItem        = new System.Windows.Forms.ToolStripMenuItem();
+            this.mnuLogout                    = new System.Windows.Forms.ToolStripMenuItem();
+            this.mnuExit                      = new System.Windows.Forms.ToolStripMenuItem();
+            this.masterFileToolStripMenuItem  = new System.Windows.Forms.ToolStripMenuItem();
+            this.mnuComponents                = new System.Windows.Forms.ToolStripMenuItem();
+            this.mnuProjects                  = new System.Windows.Forms.ToolStripMenuItem();
             this.transactionsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.mnuCheckouts                = new System.Windows.Forms.ToolStripMenuItem();
-            this.mnuAvailability             = new System.Windows.Forms.ToolStripMenuItem();
-            this.mnuReports                  = new System.Windows.Forms.ToolStripMenuItem();
-            // Header band
-            this.pnlHeader                   = new System.Windows.Forms.Panel();
-            this.lblHeaderTitle              = new System.Windows.Forms.Label();
-            // Dashboard
-            this.pnlDashboard                = new System.Windows.Forms.Panel();
-            this.pnlTotalComponents          = new System.Windows.Forms.Panel();
-            this.lblTotalComponentsTitle     = new System.Windows.Forms.Label();
-            this.lblTotalComponentsValue     = new System.Windows.Forms.Label();
-            this.pnlInStock                  = new System.Windows.Forms.Panel();
-            this.lblInStockTitle             = new System.Windows.Forms.Label();
-            this.lblInStockValue             = new System.Windows.Forms.Label();
-            this.pnlTotalProjects            = new System.Windows.Forms.Panel();
-            this.lblTotalProjectsTitle       = new System.Windows.Forms.Label();
-            this.lblTotalProjectsValue       = new System.Windows.Forms.Label();
-            this.pnlActiveCheckouts          = new System.Windows.Forms.Panel();
-            this.lblActiveCheckoutsTitle     = new System.Windows.Forms.Label();
-            this.lblActiveCheckoutsValue     = new System.Windows.Forms.Label();
-            // Grid header strip
-            this.pnlGridHeader               = new System.Windows.Forms.Panel();
-            this.lblGridTitle                = new System.Windows.Forms.Label();
-            // Main grid
-            this.dgvTodayCheckouts           = new System.Windows.Forms.DataGridView();
+            this.mnuCheckouts                 = new System.Windows.Forms.ToolStripMenuItem();
+            this.mnuAvailability              = new System.Windows.Forms.ToolStripMenuItem();
+            this.mnuReports                   = new System.Windows.Forms.ToolStripMenuItem();
+            this.pnlHeader                    = new System.Windows.Forms.Panel();
+            this.lblHeaderTitle               = new System.Windows.Forms.Label();
+            this.pnlDashboard                 = new System.Windows.Forms.Panel();
+            this.pnlTotalComponents           = new System.Windows.Forms.Panel();
+            this.lblTotalComponentsTitle      = new System.Windows.Forms.Label();
+            this.lblTotalComponentsValue      = new System.Windows.Forms.Label();
+            this.pnlInStock                   = new System.Windows.Forms.Panel();
+            this.lblInStockTitle              = new System.Windows.Forms.Label();
+            this.lblInStockValue              = new System.Windows.Forms.Label();
+            this.pnlTotalProjects             = new System.Windows.Forms.Panel();
+            this.lblTotalProjectsTitle        = new System.Windows.Forms.Label();
+            this.lblTotalProjectsValue        = new System.Windows.Forms.Label();
+            this.pnlActiveCheckouts           = new System.Windows.Forms.Panel();
+            this.lblActiveCheckoutsTitle      = new System.Windows.Forms.Label();
+            this.lblActiveCheckoutsValue      = new System.Windows.Forms.Label();
+            this.pnlGridHeader                = new System.Windows.Forms.Panel();
+            this.lblGridTitle                 = new System.Windows.Forms.Label();
+            this.dgvTodayCheckouts            = new System.Windows.Forms.DataGridView();
 
             this.mnuMain.SuspendLayout();
             this.pnlHeader.SuspendLayout();
@@ -61,7 +59,7 @@ namespace ElectronicsInventory
             this.SuspendLayout();
 
             // ── mnuMain ─────────────────────────────────────────────────
-            this.mnuMain.BackColor = System.Drawing.Color.FromArgb(21, 101, 192);
+            this.mnuMain.BackColor = System.Drawing.Color.FromArgb(42, 42, 42);
             this.mnuMain.Dock      = System.Windows.Forms.DockStyle.Top;
             this.mnuMain.Font      = new System.Drawing.Font("Segoe UI", 9F);
             this.mnuMain.ForeColor = System.Drawing.Color.White;
@@ -120,7 +118,7 @@ namespace ElectronicsInventory
             this.mnuReports.Click    += new System.EventHandler(this.mnuReports_Click);
 
             // ── pnlHeader (title band) ───────────────────────────────────
-            this.pnlHeader.BackColor = System.Drawing.Color.FromArgb(13, 71, 161);
+            this.pnlHeader.BackColor = System.Drawing.Color.FromArgb(136, 59, 47);
             this.pnlHeader.Controls.Add(this.lblHeaderTitle);
             this.pnlHeader.Dock      = System.Windows.Forms.DockStyle.Top;
             this.pnlHeader.Name      = "pnlHeader";
@@ -136,7 +134,7 @@ namespace ElectronicsInventory
             this.lblHeaderTitle.Padding   = new System.Windows.Forms.Padding(18, 0, 0, 0);
 
             // ── pnlDashboard ─────────────────────────────────────────────
-            this.pnlDashboard.BackColor = System.Drawing.Color.FromArgb(240, 244, 248);
+            this.pnlDashboard.BackColor = System.Drawing.Color.FromArgb(58, 58, 58);
             this.pnlDashboard.Controls.Add(this.pnlTotalComponents);
             this.pnlDashboard.Controls.Add(this.pnlInStock);
             this.pnlDashboard.Controls.Add(this.pnlTotalProjects);
@@ -147,8 +145,8 @@ namespace ElectronicsInventory
             this.pnlDashboard.Size      = new System.Drawing.Size(1008, 148);
             this.pnlDashboard.TabIndex  = 1;
 
-            // Card 1 – Total Components (blue tint)
-            this.pnlTotalComponents.BackColor = System.Drawing.Color.FromArgb(227, 242, 253);
+            // Card 1 – Total Components
+            this.pnlTotalComponents.BackColor = System.Drawing.Color.FromArgb(78, 68, 66);
             this.pnlTotalComponents.Controls.Add(this.lblTotalComponentsTitle);
             this.pnlTotalComponents.Controls.Add(this.lblTotalComponentsValue);
             this.pnlTotalComponents.Location = new System.Drawing.Point(18, 12);
@@ -157,21 +155,21 @@ namespace ElectronicsInventory
             this.pnlTotalComponents.TabIndex = 0;
 
             this.lblTotalComponentsTitle.AutoSize  = true;
-            this.lblTotalComponentsTitle.Font      = new System.Drawing.Font("Segoe UI", 8F);
-            this.lblTotalComponentsTitle.ForeColor = System.Drawing.Color.FromArgb(21, 101, 192);
+            this.lblTotalComponentsTitle.Font      = new System.Drawing.Font("Segoe UI", 8F, System.Drawing.FontStyle.Bold);
+            this.lblTotalComponentsTitle.ForeColor = System.Drawing.Color.FromArgb(136, 59, 47);
             this.lblTotalComponentsTitle.Location  = new System.Drawing.Point(12, 12);
             this.lblTotalComponentsTitle.Name      = "lblTotalComponentsTitle";
             this.lblTotalComponentsTitle.Text      = "TOTAL COMPONENTS";
 
             this.lblTotalComponentsValue.AutoSize  = true;
             this.lblTotalComponentsValue.Font      = new System.Drawing.Font("Segoe UI", 28F, System.Drawing.FontStyle.Bold);
-            this.lblTotalComponentsValue.ForeColor = System.Drawing.Color.FromArgb(21, 101, 192);
+            this.lblTotalComponentsValue.ForeColor = System.Drawing.Color.White;
             this.lblTotalComponentsValue.Location  = new System.Drawing.Point(10, 32);
             this.lblTotalComponentsValue.Name      = "lblTotalComponentsValue";
             this.lblTotalComponentsValue.Text      = "0";
 
-            // Card 2 – In Stock (green tint)
-            this.pnlInStock.BackColor = System.Drawing.Color.FromArgb(232, 245, 233);
+            // Card 2 – In Stock
+            this.pnlInStock.BackColor = System.Drawing.Color.FromArgb(66, 78, 68);
             this.pnlInStock.Controls.Add(this.lblInStockTitle);
             this.pnlInStock.Controls.Add(this.lblInStockValue);
             this.pnlInStock.Location = new System.Drawing.Point(238, 12);
@@ -180,21 +178,21 @@ namespace ElectronicsInventory
             this.pnlInStock.TabIndex = 1;
 
             this.lblInStockTitle.AutoSize  = true;
-            this.lblInStockTitle.Font      = new System.Drawing.Font("Segoe UI", 8F);
-            this.lblInStockTitle.ForeColor = System.Drawing.Color.FromArgb(46, 125, 50);
+            this.lblInStockTitle.Font      = new System.Drawing.Font("Segoe UI", 8F, System.Drawing.FontStyle.Bold);
+            this.lblInStockTitle.ForeColor = System.Drawing.Color.FromArgb(70, 160, 80);
             this.lblInStockTitle.Location  = new System.Drawing.Point(12, 12);
             this.lblInStockTitle.Name      = "lblInStockTitle";
             this.lblInStockTitle.Text      = "IN STOCK";
 
             this.lblInStockValue.AutoSize  = true;
             this.lblInStockValue.Font      = new System.Drawing.Font("Segoe UI", 28F, System.Drawing.FontStyle.Bold);
-            this.lblInStockValue.ForeColor = System.Drawing.Color.FromArgb(46, 125, 50);
+            this.lblInStockValue.ForeColor = System.Drawing.Color.White;
             this.lblInStockValue.Location  = new System.Drawing.Point(10, 32);
             this.lblInStockValue.Name      = "lblInStockValue";
             this.lblInStockValue.Text      = "0";
 
-            // Card 3 – Total Projects (amber tint)
-            this.pnlTotalProjects.BackColor = System.Drawing.Color.FromArgb(255, 243, 224);
+            // Card 3 – Total Projects
+            this.pnlTotalProjects.BackColor = System.Drawing.Color.FromArgb(78, 75, 62);
             this.pnlTotalProjects.Controls.Add(this.lblTotalProjectsTitle);
             this.pnlTotalProjects.Controls.Add(this.lblTotalProjectsValue);
             this.pnlTotalProjects.Location = new System.Drawing.Point(458, 12);
@@ -203,21 +201,21 @@ namespace ElectronicsInventory
             this.pnlTotalProjects.TabIndex = 2;
 
             this.lblTotalProjectsTitle.AutoSize  = true;
-            this.lblTotalProjectsTitle.Font      = new System.Drawing.Font("Segoe UI", 8F);
-            this.lblTotalProjectsTitle.ForeColor = System.Drawing.Color.FromArgb(230, 81, 0);
+            this.lblTotalProjectsTitle.Font      = new System.Drawing.Font("Segoe UI", 8F, System.Drawing.FontStyle.Bold);
+            this.lblTotalProjectsTitle.ForeColor = System.Drawing.Color.FromArgb(200, 150, 50);
             this.lblTotalProjectsTitle.Location  = new System.Drawing.Point(12, 12);
             this.lblTotalProjectsTitle.Name      = "lblTotalProjectsTitle";
             this.lblTotalProjectsTitle.Text      = "TOTAL PROJECTS";
 
             this.lblTotalProjectsValue.AutoSize  = true;
             this.lblTotalProjectsValue.Font      = new System.Drawing.Font("Segoe UI", 28F, System.Drawing.FontStyle.Bold);
-            this.lblTotalProjectsValue.ForeColor = System.Drawing.Color.FromArgb(230, 81, 0);
+            this.lblTotalProjectsValue.ForeColor = System.Drawing.Color.White;
             this.lblTotalProjectsValue.Location  = new System.Drawing.Point(10, 32);
             this.lblTotalProjectsValue.Name      = "lblTotalProjectsValue";
             this.lblTotalProjectsValue.Text      = "0";
 
-            // Card 4 – Active Checkouts (red tint)
-            this.pnlActiveCheckouts.BackColor = System.Drawing.Color.FromArgb(252, 228, 236);
+            // Card 4 – Active Checkouts
+            this.pnlActiveCheckouts.BackColor = System.Drawing.Color.FromArgb(78, 64, 64);
             this.pnlActiveCheckouts.Controls.Add(this.lblActiveCheckoutsTitle);
             this.pnlActiveCheckouts.Controls.Add(this.lblActiveCheckoutsValue);
             this.pnlActiveCheckouts.Location = new System.Drawing.Point(678, 12);
@@ -226,21 +224,21 @@ namespace ElectronicsInventory
             this.pnlActiveCheckouts.TabIndex = 3;
 
             this.lblActiveCheckoutsTitle.AutoSize  = true;
-            this.lblActiveCheckoutsTitle.Font      = new System.Drawing.Font("Segoe UI", 8F);
-            this.lblActiveCheckoutsTitle.ForeColor = System.Drawing.Color.FromArgb(183, 28, 28);
+            this.lblActiveCheckoutsTitle.Font      = new System.Drawing.Font("Segoe UI", 8F, System.Drawing.FontStyle.Bold);
+            this.lblActiveCheckoutsTitle.ForeColor = System.Drawing.Color.FromArgb(200, 80, 80);
             this.lblActiveCheckoutsTitle.Location  = new System.Drawing.Point(12, 12);
             this.lblActiveCheckoutsTitle.Name      = "lblActiveCheckoutsTitle";
             this.lblActiveCheckoutsTitle.Text      = "ACTIVE CHECKOUTS";
 
             this.lblActiveCheckoutsValue.AutoSize  = true;
             this.lblActiveCheckoutsValue.Font      = new System.Drawing.Font("Segoe UI", 28F, System.Drawing.FontStyle.Bold);
-            this.lblActiveCheckoutsValue.ForeColor = System.Drawing.Color.FromArgb(183, 28, 28);
+            this.lblActiveCheckoutsValue.ForeColor = System.Drawing.Color.White;
             this.lblActiveCheckoutsValue.Location  = new System.Drawing.Point(10, 32);
             this.lblActiveCheckoutsValue.Name      = "lblActiveCheckoutsValue";
             this.lblActiveCheckoutsValue.Text      = "0";
 
             // ── pnlGridHeader ────────────────────────────────────────────
-            this.pnlGridHeader.BackColor = System.Drawing.Color.FromArgb(21, 101, 192);
+            this.pnlGridHeader.BackColor = System.Drawing.Color.FromArgb(136, 59, 47);
             this.pnlGridHeader.Controls.Add(this.lblGridTitle);
             this.pnlGridHeader.Dock     = System.Windows.Forms.DockStyle.Top;
             this.pnlGridHeader.Name     = "pnlGridHeader";
@@ -256,20 +254,33 @@ namespace ElectronicsInventory
             this.lblGridTitle.Padding   = new System.Windows.Forms.Padding(16, 0, 0, 0);
 
             // ── dgvTodayCheckouts ────────────────────────────────────────
-            this.dgvTodayCheckouts.AllowUserToAddRows    = false;
-            this.dgvTodayCheckouts.AllowUserToDeleteRows = false;
-            this.dgvTodayCheckouts.AutoSizeColumnsMode   = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dgvTodayCheckouts.BackgroundColor       = System.Drawing.Color.White;
-            this.dgvTodayCheckouts.BorderStyle           = System.Windows.Forms.BorderStyle.None;
-            this.dgvTodayCheckouts.CellBorderStyle       = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
-            dgvHeaderStyle.BackColor = System.Drawing.Color.FromArgb(21, 101, 192);
+            dgvHeaderStyle.BackColor = System.Drawing.Color.FromArgb(100, 40, 30);
             dgvHeaderStyle.Font      = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
             dgvHeaderStyle.ForeColor = System.Drawing.Color.White;
+
+            dgvCellStyle.BackColor          = System.Drawing.Color.FromArgb(62, 62, 62);
+            dgvCellStyle.ForeColor          = System.Drawing.Color.White;
+            dgvCellStyle.SelectionBackColor = System.Drawing.Color.FromArgb(136, 59, 47);
+            dgvCellStyle.SelectionForeColor = System.Drawing.Color.White;
+
+            dgvAltCellStyle.BackColor          = System.Drawing.Color.FromArgb(70, 70, 70);
+            dgvAltCellStyle.ForeColor          = System.Drawing.Color.White;
+            dgvAltCellStyle.SelectionBackColor = System.Drawing.Color.FromArgb(136, 59, 47);
+            dgvAltCellStyle.SelectionForeColor = System.Drawing.Color.White;
+
+            this.dgvTodayCheckouts.AllowUserToAddRows             = false;
+            this.dgvTodayCheckouts.AllowUserToDeleteRows          = false;
+            this.dgvTodayCheckouts.AlternatingRowsDefaultCellStyle = dgvAltCellStyle;
+            this.dgvTodayCheckouts.AutoSizeColumnsMode            = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgvTodayCheckouts.BackgroundColor                = System.Drawing.Color.FromArgb(58, 58, 58);
+            this.dgvTodayCheckouts.BorderStyle                    = System.Windows.Forms.BorderStyle.None;
+            this.dgvTodayCheckouts.CellBorderStyle                = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
             this.dgvTodayCheckouts.ColumnHeadersDefaultCellStyle  = dgvHeaderStyle;
             this.dgvTodayCheckouts.ColumnHeadersHeightSizeMode    = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvTodayCheckouts.DefaultCellStyle               = dgvCellStyle;
             this.dgvTodayCheckouts.Dock                           = System.Windows.Forms.DockStyle.Fill;
             this.dgvTodayCheckouts.EnableHeadersVisualStyles      = false;
-            this.dgvTodayCheckouts.GridColor                      = System.Drawing.Color.FromArgb(224, 224, 224);
+            this.dgvTodayCheckouts.GridColor                      = System.Drawing.Color.FromArgb(88, 88, 88);
             this.dgvTodayCheckouts.Name                           = "dgvTodayCheckouts";
             this.dgvTodayCheckouts.ReadOnly                       = true;
             this.dgvTodayCheckouts.RowHeadersVisible              = false;
@@ -280,9 +291,8 @@ namespace ElectronicsInventory
             // ── frmMain ──────────────────────────────────────────────────
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode       = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor           = System.Drawing.Color.White;
+            this.BackColor           = System.Drawing.Color.FromArgb(60, 60, 60);
             this.ClientSize          = new System.Drawing.Size(1008, 729);
-            // Add in reverse dock order: Fill first, Top last added = topmost
             this.Controls.Add(this.dgvTodayCheckouts);
             this.Controls.Add(this.pnlGridHeader);
             this.Controls.Add(this.pnlDashboard);

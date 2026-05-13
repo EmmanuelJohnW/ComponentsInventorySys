@@ -1,6 +1,5 @@
 namespace ElectronicsInventory
 {
-    // Layout: navy header (title + search) | horizontal field strip | full-width grid | bottom action bar
     partial class frmProjects
     {
         private System.ComponentModel.IContainer components = null;
@@ -14,7 +13,9 @@ namespace ElectronicsInventory
 
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dgvHeaderStyle = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dgvHeaderStyle  = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dgvCellStyle    = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dgvAltCellStyle = new System.Windows.Forms.DataGridViewCellStyle();
 
             this.pnlHeader      = new System.Windows.Forms.Panel();
             this.lblTitle       = new System.Windows.Forms.Label();
@@ -42,7 +43,7 @@ namespace ElectronicsInventory
             this.SuspendLayout();
 
             // ── pnlHeader ────────────────────────────────────────────────
-            this.pnlHeader.BackColor = System.Drawing.Color.FromArgb(13, 71, 161);
+            this.pnlHeader.BackColor = System.Drawing.Color.FromArgb(136, 59, 47);
             this.pnlHeader.Controls.Add(this.lblTitle);
             this.pnlHeader.Controls.Add(this.txtSearch);
             this.pnlHeader.Dock     = System.Windows.Forms.DockStyle.Top;
@@ -60,7 +61,7 @@ namespace ElectronicsInventory
             this.lblTitle.Text      = "Project Management";
             this.lblTitle.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
 
-            this.txtSearch.BackColor       = System.Drawing.Color.FromArgb(25, 85, 170);
+            this.txtSearch.BackColor       = System.Drawing.Color.FromArgb(100, 40, 30);
             this.txtSearch.BorderStyle     = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtSearch.Font            = new System.Drawing.Font("Segoe UI", 9F);
             this.txtSearch.ForeColor       = System.Drawing.Color.White;
@@ -71,8 +72,8 @@ namespace ElectronicsInventory
             this.txtSearch.TabIndex        = 10;
             this.txtSearch.TextChanged    += new System.EventHandler(this.txtSearch_TextChanged);
 
-            // ── pnlForm (single-row horizontal field strip) ──────────────
-            this.pnlForm.BackColor  = System.Drawing.Color.FromArgb(248, 249, 252);
+            // ── pnlForm ──────────────────────────────────────────────────
+            this.pnlForm.BackColor  = System.Drawing.Color.FromArgb(72, 72, 72);
             this.pnlForm.Controls.Add(this.lblProjectName);
             this.pnlForm.Controls.Add(this.txtProjectName);
             this.pnlForm.Controls.Add(this.lblProjectCode);
@@ -86,16 +87,17 @@ namespace ElectronicsInventory
             this.pnlForm.Size       = new System.Drawing.Size(960, 68);
             this.pnlForm.TabIndex   = 1;
 
-            // Row 1 — Project Name | Project Code | Lead Name | Email
             this.lblProjectName.AutoSize  = true;
             this.lblProjectName.Font      = new System.Drawing.Font("Segoe UI", 9F);
-            this.lblProjectName.ForeColor = System.Drawing.Color.FromArgb(80, 80, 80);
+            this.lblProjectName.ForeColor = System.Drawing.Color.White;
             this.lblProjectName.Location  = new System.Drawing.Point(16, 10);
             this.lblProjectName.Name      = "lblProjectName";
             this.lblProjectName.Text      = "Project Name";
 
+            this.txtProjectName.BackColor   = System.Drawing.Color.FromArgb(82, 82, 82);
             this.txtProjectName.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtProjectName.Font        = new System.Drawing.Font("Segoe UI", 9F);
+            this.txtProjectName.ForeColor   = System.Drawing.Color.White;
             this.txtProjectName.Location    = new System.Drawing.Point(16, 28);
             this.txtProjectName.Name        = "txtProjectName";
             this.txtProjectName.Size        = new System.Drawing.Size(230, 26);
@@ -103,13 +105,15 @@ namespace ElectronicsInventory
 
             this.lblProjectCode.AutoSize  = true;
             this.lblProjectCode.Font      = new System.Drawing.Font("Segoe UI", 9F);
-            this.lblProjectCode.ForeColor = System.Drawing.Color.FromArgb(80, 80, 80);
+            this.lblProjectCode.ForeColor = System.Drawing.Color.White;
             this.lblProjectCode.Location  = new System.Drawing.Point(264, 10);
             this.lblProjectCode.Name      = "lblProjectCode";
             this.lblProjectCode.Text      = "Project Code";
 
+            this.txtProjectCode.BackColor   = System.Drawing.Color.FromArgb(82, 82, 82);
             this.txtProjectCode.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtProjectCode.Font        = new System.Drawing.Font("Segoe UI", 9F);
+            this.txtProjectCode.ForeColor   = System.Drawing.Color.White;
             this.txtProjectCode.Location    = new System.Drawing.Point(264, 28);
             this.txtProjectCode.Name        = "txtProjectCode";
             this.txtProjectCode.Size        = new System.Drawing.Size(180, 26);
@@ -117,13 +121,15 @@ namespace ElectronicsInventory
 
             this.lblLeadName.AutoSize  = true;
             this.lblLeadName.Font      = new System.Drawing.Font("Segoe UI", 9F);
-            this.lblLeadName.ForeColor = System.Drawing.Color.FromArgb(80, 80, 80);
+            this.lblLeadName.ForeColor = System.Drawing.Color.White;
             this.lblLeadName.Location  = new System.Drawing.Point(462, 10);
             this.lblLeadName.Name      = "lblLeadName";
             this.lblLeadName.Text      = "Lead Name";
 
+            this.txtLeadName.BackColor   = System.Drawing.Color.FromArgb(82, 82, 82);
             this.txtLeadName.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtLeadName.Font        = new System.Drawing.Font("Segoe UI", 9F);
+            this.txtLeadName.ForeColor   = System.Drawing.Color.White;
             this.txtLeadName.Location    = new System.Drawing.Point(462, 28);
             this.txtLeadName.Name        = "txtLeadName";
             this.txtLeadName.Size        = new System.Drawing.Size(220, 26);
@@ -131,43 +137,58 @@ namespace ElectronicsInventory
 
             this.lblEmail.AutoSize  = true;
             this.lblEmail.Font      = new System.Drawing.Font("Segoe UI", 9F);
-            this.lblEmail.ForeColor = System.Drawing.Color.FromArgb(80, 80, 80);
+            this.lblEmail.ForeColor = System.Drawing.Color.White;
             this.lblEmail.Location  = new System.Drawing.Point(700, 10);
             this.lblEmail.Name      = "lblEmail";
             this.lblEmail.Text      = "Email";
 
+            this.txtEmail.BackColor   = System.Drawing.Color.FromArgb(82, 82, 82);
             this.txtEmail.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtEmail.Font        = new System.Drawing.Font("Segoe UI", 9F);
+            this.txtEmail.ForeColor   = System.Drawing.Color.White;
             this.txtEmail.Location    = new System.Drawing.Point(700, 28);
             this.txtEmail.Name        = "txtEmail";
             this.txtEmail.Size        = new System.Drawing.Size(244, 26);
             this.txtEmail.TabIndex    = 3;
 
-            // ── dgvProjects (fills space between field strip and action bar) ──
-            this.dgvProjects.AllowUserToAddRows    = false;
-            this.dgvProjects.AllowUserToDeleteRows = false;
-            this.dgvProjects.AutoSizeColumnsMode   = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dgvProjects.BackgroundColor       = System.Drawing.Color.White;
-            this.dgvProjects.BorderStyle           = System.Windows.Forms.BorderStyle.None;
-            this.dgvProjects.CellBorderStyle       = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
-            dgvHeaderStyle.BackColor = System.Drawing.Color.FromArgb(21, 101, 192);
+            // ── dgvProjects ───────────────────────────────────────────────
+            dgvHeaderStyle.BackColor = System.Drawing.Color.FromArgb(100, 40, 30);
             dgvHeaderStyle.Font      = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
             dgvHeaderStyle.ForeColor = System.Drawing.Color.White;
-            this.dgvProjects.ColumnHeadersDefaultCellStyle = dgvHeaderStyle;
-            this.dgvProjects.ColumnHeadersHeightSizeMode   = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvProjects.Dock                          = System.Windows.Forms.DockStyle.Fill;
-            this.dgvProjects.EnableHeadersVisualStyles     = false;
-            this.dgvProjects.GridColor                     = System.Drawing.Color.FromArgb(224, 224, 224);
-            this.dgvProjects.Name                          = "dgvProjects";
-            this.dgvProjects.ReadOnly                      = true;
-            this.dgvProjects.RowHeadersVisible             = false;
-            this.dgvProjects.RowTemplate.Height            = 32;
-            this.dgvProjects.SelectionMode                 = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvProjects.TabIndex                      = 2;
-            this.dgvProjects.SelectionChanged             += new System.EventHandler(this.dgvProjects_SelectionChanged);
 
-            // ── pnlActions (bottom button bar) ───────────────────────────
-            this.pnlActions.BackColor = System.Drawing.Color.FromArgb(240, 244, 250);
+            dgvCellStyle.BackColor          = System.Drawing.Color.FromArgb(62, 62, 62);
+            dgvCellStyle.ForeColor          = System.Drawing.Color.White;
+            dgvCellStyle.SelectionBackColor = System.Drawing.Color.FromArgb(136, 59, 47);
+            dgvCellStyle.SelectionForeColor = System.Drawing.Color.White;
+
+            dgvAltCellStyle.BackColor          = System.Drawing.Color.FromArgb(70, 70, 70);
+            dgvAltCellStyle.ForeColor          = System.Drawing.Color.White;
+            dgvAltCellStyle.SelectionBackColor = System.Drawing.Color.FromArgb(136, 59, 47);
+            dgvAltCellStyle.SelectionForeColor = System.Drawing.Color.White;
+
+            this.dgvProjects.AllowUserToAddRows              = false;
+            this.dgvProjects.AllowUserToDeleteRows           = false;
+            this.dgvProjects.AlternatingRowsDefaultCellStyle = dgvAltCellStyle;
+            this.dgvProjects.AutoSizeColumnsMode             = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgvProjects.BackgroundColor                 = System.Drawing.Color.FromArgb(60, 60, 60);
+            this.dgvProjects.BorderStyle                     = System.Windows.Forms.BorderStyle.None;
+            this.dgvProjects.CellBorderStyle                 = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
+            this.dgvProjects.ColumnHeadersDefaultCellStyle   = dgvHeaderStyle;
+            this.dgvProjects.ColumnHeadersHeightSizeMode     = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvProjects.DefaultCellStyle                = dgvCellStyle;
+            this.dgvProjects.Dock                            = System.Windows.Forms.DockStyle.Fill;
+            this.dgvProjects.EnableHeadersVisualStyles       = false;
+            this.dgvProjects.GridColor                       = System.Drawing.Color.FromArgb(88, 88, 88);
+            this.dgvProjects.Name                            = "dgvProjects";
+            this.dgvProjects.ReadOnly                        = true;
+            this.dgvProjects.RowHeadersVisible               = false;
+            this.dgvProjects.RowTemplate.Height              = 32;
+            this.dgvProjects.SelectionMode                   = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgvProjects.TabIndex                        = 2;
+            this.dgvProjects.SelectionChanged               += new System.EventHandler(this.dgvProjects_SelectionChanged);
+
+            // ── pnlActions ───────────────────────────────────────────────
+            this.pnlActions.BackColor = System.Drawing.Color.FromArgb(54, 54, 54);
             this.pnlActions.Controls.Add(this.btnAdd);
             this.pnlActions.Controls.Add(this.btnUpdate);
             this.pnlActions.Controls.Add(this.btnDelete);
@@ -177,7 +198,7 @@ namespace ElectronicsInventory
             this.pnlActions.Size      = new System.Drawing.Size(960, 58);
             this.pnlActions.TabIndex  = 3;
 
-            this.btnAdd.BackColor                 = System.Drawing.Color.FromArgb(21, 101, 192);
+            this.btnAdd.BackColor                 = System.Drawing.Color.FromArgb(136, 59, 47);
             this.btnAdd.Cursor                    = System.Windows.Forms.Cursors.Hand;
             this.btnAdd.FlatAppearance.BorderSize = 0;
             this.btnAdd.FlatStyle                 = System.Windows.Forms.FlatStyle.Flat;
@@ -190,7 +211,7 @@ namespace ElectronicsInventory
             this.btnAdd.UseVisualStyleBackColor   = false;
             this.btnAdd.Click                    += new System.EventHandler(this.btnAdd_Click);
 
-            this.btnUpdate.BackColor                 = System.Drawing.Color.FromArgb(21, 101, 192);
+            this.btnUpdate.BackColor                 = System.Drawing.Color.FromArgb(136, 59, 47);
             this.btnUpdate.Cursor                    = System.Windows.Forms.Cursors.Hand;
             this.btnUpdate.FlatAppearance.BorderSize = 0;
             this.btnUpdate.FlatStyle                 = System.Windows.Forms.FlatStyle.Flat;
@@ -203,7 +224,7 @@ namespace ElectronicsInventory
             this.btnUpdate.UseVisualStyleBackColor   = false;
             this.btnUpdate.Click                    += new System.EventHandler(this.btnUpdate_Click);
 
-            this.btnDelete.BackColor                 = System.Drawing.Color.FromArgb(183, 28, 28);
+            this.btnDelete.BackColor                 = System.Drawing.Color.FromArgb(140, 30, 30);
             this.btnDelete.Cursor                    = System.Windows.Forms.Cursors.Hand;
             this.btnDelete.FlatAppearance.BorderSize = 0;
             this.btnDelete.FlatStyle                 = System.Windows.Forms.FlatStyle.Flat;
@@ -216,7 +237,7 @@ namespace ElectronicsInventory
             this.btnDelete.UseVisualStyleBackColor   = false;
             this.btnDelete.Click                    += new System.EventHandler(this.btnDelete_Click);
 
-            this.btnClear.BackColor                 = System.Drawing.Color.FromArgb(97, 97, 97);
+            this.btnClear.BackColor                 = System.Drawing.Color.FromArgb(88, 88, 88);
             this.btnClear.Cursor                    = System.Windows.Forms.Cursors.Hand;
             this.btnClear.FlatAppearance.BorderSize = 0;
             this.btnClear.FlatStyle                 = System.Windows.Forms.FlatStyle.Flat;
@@ -232,7 +253,7 @@ namespace ElectronicsInventory
             // ── frmProjects ──────────────────────────────────────────────
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode       = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor           = System.Drawing.Color.White;
+            this.BackColor           = System.Drawing.Color.FromArgb(60, 60, 60);
             this.ClientSize          = new System.Drawing.Size(960, 600);
             this.Controls.Add(this.dgvProjects);
             this.Controls.Add(this.pnlActions);

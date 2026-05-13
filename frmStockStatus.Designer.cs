@@ -1,6 +1,5 @@
 namespace ElectronicsInventory
 {
-    // Layout: dark header band (title) | filter row panel | full-width availability grid
     partial class frmStockStatus
     {
         private System.ComponentModel.IContainer components = null;
@@ -14,7 +13,9 @@ namespace ElectronicsInventory
 
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dgvHeaderStyle = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dgvHeaderStyle  = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dgvCellStyle    = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dgvAltCellStyle = new System.Windows.Forms.DataGridViewCellStyle();
 
             this.pnlHeader    = new System.Windows.Forms.Panel();
             this.lblTitle     = new System.Windows.Forms.Label();
@@ -32,7 +33,7 @@ namespace ElectronicsInventory
             this.SuspendLayout();
 
             // ── pnlHeader ────────────────────────────────────────────────
-            this.pnlHeader.BackColor = System.Drawing.Color.FromArgb(13, 71, 161);
+            this.pnlHeader.BackColor = System.Drawing.Color.FromArgb(136, 59, 47);
             this.pnlHeader.Controls.Add(this.lblTitle);
             this.pnlHeader.Dock     = System.Windows.Forms.DockStyle.Top;
             this.pnlHeader.Name     = "pnlHeader";
@@ -50,7 +51,7 @@ namespace ElectronicsInventory
             this.lblTitle.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
 
             // ── pnlFilters ───────────────────────────────────────────────
-            this.pnlFilters.BackColor  = System.Drawing.Color.FromArgb(248, 249, 252);
+            this.pnlFilters.BackColor  = System.Drawing.Color.FromArgb(72, 72, 72);
             this.pnlFilters.Controls.Add(this.lblStart);
             this.pnlFilters.Controls.Add(this.dtpStart);
             this.pnlFilters.Controls.Add(this.lblEnd);
@@ -63,7 +64,7 @@ namespace ElectronicsInventory
 
             this.lblStart.AutoSize  = true;
             this.lblStart.Font      = new System.Drawing.Font("Segoe UI", 9F);
-            this.lblStart.ForeColor = System.Drawing.Color.FromArgb(80, 80, 80);
+            this.lblStart.ForeColor = System.Drawing.Color.White;
             this.lblStart.Location  = new System.Drawing.Point(16, 10);
             this.lblStart.Name      = "lblStart";
             this.lblStart.Text      = "Start Date";
@@ -76,7 +77,7 @@ namespace ElectronicsInventory
 
             this.lblEnd.AutoSize  = true;
             this.lblEnd.Font      = new System.Drawing.Font("Segoe UI", 9F);
-            this.lblEnd.ForeColor = System.Drawing.Color.FromArgb(80, 80, 80);
+            this.lblEnd.ForeColor = System.Drawing.Color.White;
             this.lblEnd.Location  = new System.Drawing.Point(234, 10);
             this.lblEnd.Name      = "lblEnd";
             this.lblEnd.Text      = "End Date";
@@ -87,7 +88,7 @@ namespace ElectronicsInventory
             this.dtpEnd.Size     = new System.Drawing.Size(200, 26);
             this.dtpEnd.TabIndex = 1;
 
-            this.btnCheck.BackColor                 = System.Drawing.Color.FromArgb(21, 101, 192);
+            this.btnCheck.BackColor                 = System.Drawing.Color.FromArgb(136, 59, 47);
             this.btnCheck.Cursor                    = System.Windows.Forms.Cursors.Hand;
             this.btnCheck.FlatAppearance.BorderSize = 0;
             this.btnCheck.FlatStyle                 = System.Windows.Forms.FlatStyle.Flat;
@@ -101,31 +102,44 @@ namespace ElectronicsInventory
             this.btnCheck.Click                    += new System.EventHandler(this.btnCheck_Click);
 
             // ── dgvAvailable ─────────────────────────────────────────────
-            this.dgvAvailable.AllowUserToAddRows    = false;
-            this.dgvAvailable.AllowUserToDeleteRows = false;
-            this.dgvAvailable.AutoSizeColumnsMode   = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dgvAvailable.BackgroundColor       = System.Drawing.Color.White;
-            this.dgvAvailable.BorderStyle           = System.Windows.Forms.BorderStyle.None;
-            this.dgvAvailable.CellBorderStyle       = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
-            dgvHeaderStyle.BackColor = System.Drawing.Color.FromArgb(21, 101, 192);
+            dgvHeaderStyle.BackColor = System.Drawing.Color.FromArgb(100, 40, 30);
             dgvHeaderStyle.Font      = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
             dgvHeaderStyle.ForeColor = System.Drawing.Color.White;
-            this.dgvAvailable.ColumnHeadersDefaultCellStyle = dgvHeaderStyle;
-            this.dgvAvailable.ColumnHeadersHeightSizeMode   = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvAvailable.Dock                          = System.Windows.Forms.DockStyle.Fill;
-            this.dgvAvailable.EnableHeadersVisualStyles     = false;
-            this.dgvAvailable.GridColor                     = System.Drawing.Color.FromArgb(224, 224, 224);
-            this.dgvAvailable.Name                          = "dgvAvailable";
-            this.dgvAvailable.ReadOnly                      = true;
-            this.dgvAvailable.RowHeadersVisible             = false;
-            this.dgvAvailable.RowTemplate.Height            = 32;
-            this.dgvAvailable.SelectionMode                 = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvAvailable.TabIndex                      = 2;
+
+            dgvCellStyle.BackColor          = System.Drawing.Color.FromArgb(62, 62, 62);
+            dgvCellStyle.ForeColor          = System.Drawing.Color.White;
+            dgvCellStyle.SelectionBackColor = System.Drawing.Color.FromArgb(136, 59, 47);
+            dgvCellStyle.SelectionForeColor = System.Drawing.Color.White;
+
+            dgvAltCellStyle.BackColor          = System.Drawing.Color.FromArgb(70, 70, 70);
+            dgvAltCellStyle.ForeColor          = System.Drawing.Color.White;
+            dgvAltCellStyle.SelectionBackColor = System.Drawing.Color.FromArgb(136, 59, 47);
+            dgvAltCellStyle.SelectionForeColor = System.Drawing.Color.White;
+
+            this.dgvAvailable.AllowUserToAddRows              = false;
+            this.dgvAvailable.AllowUserToDeleteRows           = false;
+            this.dgvAvailable.AlternatingRowsDefaultCellStyle = dgvAltCellStyle;
+            this.dgvAvailable.AutoSizeColumnsMode             = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgvAvailable.BackgroundColor                 = System.Drawing.Color.FromArgb(60, 60, 60);
+            this.dgvAvailable.BorderStyle                     = System.Windows.Forms.BorderStyle.None;
+            this.dgvAvailable.CellBorderStyle                 = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
+            this.dgvAvailable.ColumnHeadersDefaultCellStyle   = dgvHeaderStyle;
+            this.dgvAvailable.ColumnHeadersHeightSizeMode     = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvAvailable.DefaultCellStyle                = dgvCellStyle;
+            this.dgvAvailable.Dock                            = System.Windows.Forms.DockStyle.Fill;
+            this.dgvAvailable.EnableHeadersVisualStyles       = false;
+            this.dgvAvailable.GridColor                       = System.Drawing.Color.FromArgb(88, 88, 88);
+            this.dgvAvailable.Name                            = "dgvAvailable";
+            this.dgvAvailable.ReadOnly                        = true;
+            this.dgvAvailable.RowHeadersVisible               = false;
+            this.dgvAvailable.RowTemplate.Height              = 32;
+            this.dgvAvailable.SelectionMode                   = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgvAvailable.TabIndex                        = 2;
 
             // ── frmStockStatus ───────────────────────────────────────────
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode       = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor           = System.Drawing.Color.White;
+            this.BackColor           = System.Drawing.Color.FromArgb(60, 60, 60);
             this.ClientSize          = new System.Drawing.Size(860, 560);
             this.Controls.Add(this.dgvAvailable);
             this.Controls.Add(this.pnlFilters);
