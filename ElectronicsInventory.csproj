@@ -11,6 +11,7 @@
     <ApplicationHighDpiMode>SystemAware</ApplicationHighDpiMode>
     <AssemblyName>ElectronicsInventory</AssemblyName>
     <RootNamespace>ElectronicsInventory</RootNamespace>
+    <EnableWindowsTargeting>true</EnableWindowsTargeting>
   </PropertyGroup>
 
   <ItemGroup>

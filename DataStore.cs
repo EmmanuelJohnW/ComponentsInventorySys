@@ -208,7 +208,7 @@ public static class DataStore
         cmd.Parameters.AddWithValue("status", status);
         cmd.ExecuteNonQuery();
 
-        int newId = (int)conn.LastInsertRowId;
+        int newId = (int)(long)new SqliteCommand("SELECT last_insert_rowid()", conn).ExecuteScalar()!;
 
         Components.Rows.Add(newId, partNo, manufacturer, partName, qty, unitCost, status);
         Components.AcceptChanges();
@@ -301,7 +301,7 @@ public static class DataStore
         cmd.Parameters.AddWithValue("email", string.IsNullOrEmpty(email)    ? DBNull.Value : (object)email);
         cmd.ExecuteNonQuery();
 
-        int newId = (int)conn.LastInsertRowId;
+        int newId = (int)(long)new SqliteCommand("SELECT last_insert_rowid()", conn).ExecuteScalar()!;
 
         Projects.Rows.Add(newId, projectName, projectCode, leadName, email);
         Projects.AcceptChanges();
@@ -367,7 +367,7 @@ public static class DataStore
         insertCmd.Parameters.AddWithValue("status", status);
         insertCmd.ExecuteNonQuery();
 
-        int newId = (int)conn.LastInsertRowId;
+        int newId = (int)(long)new SqliteCommand("SELECT last_insert_rowid()", conn, tx).ExecuteScalar()!;
 
         using var updateCmd = new SqliteCommand(
             "UPDATE components SET status = 'Checked Out' WHERE component_id = @id", conn, tx);
